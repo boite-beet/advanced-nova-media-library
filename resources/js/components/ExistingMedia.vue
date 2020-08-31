@@ -90,7 +90,7 @@
       },
       filters: {
         default: null,
-        type: Object
+        type: Array
       }
     },
     computed: {
