@@ -3,6 +3,8 @@
 Manage images of [spatie's media library package](https://github.com/spatie/laravel-medialibrary). Upload multiple
 images and order them by drag and drop.
 
+**Forked from [ebess/advanced-nova-media-library](https://github.com/ebess/advanced-nova-media-library).**
+
 ##### Table of Contents  
 * [Examples](#examples)  
 * [Install](#install)  
@@ -17,16 +19,9 @@ images and order them by drag and drop.
 * [Custom headers](#custom-headers)
 * [Media Field (Video)](#media-field-video)  
 
-## Examples
-![Cropping](https://raw.githubusercontent.com/ebess/advanced-nova-media-library/master/docs/cropping.gif)
-![Single image upload](https://raw.githubusercontent.com/ebess/advanced-nova-media-library/master/docs/single-image.png)
-![Multiple image upload](https://raw.githubusercontent.com/ebess/advanced-nova-media-library/master/docs/multiple-images.png)
-![Custom properties](https://raw.githubusercontent.com/ebess/advanced-nova-media-library/master/docs/custom-properties.gif)
-![Generic file management](https://raw.githubusercontent.com/ebess/advanced-nova-media-library/master/docs/file-management.png)
-
 ## Install
 ```bash
-composer require ebess/advanced-nova-media-library
+composer require boite-beet/advanced-nova-media-library
 ```
 
 ```bash
