@@ -19,6 +19,11 @@ class MediaController extends Controller
 
         $searchText = $request->input('search_text') ?: null;
         $perPage = $request->input('per_page') ?: 18;
+        $filters = $request->input('filters') ?
+            array_map(function ($filter) {
+                return json_decode($filter);
+            }, $request->input('filters'))
+            : [];
 
         $query = null;
 
@@ -35,6 +40,9 @@ class MediaController extends Controller
             }
 
             $query->latest();
+        }
+        if ($filters) {
+            $query->where($filters);
         }
 
         $results = $query->paginate($perPage);

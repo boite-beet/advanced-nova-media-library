@@ -53,6 +53,29 @@ public function registerMediaCollections()
 }
 ```
 
+### Configure default conversion to use by collection and view
+If you have published the config files in the [install step](#install), you should have the following option:
+```php
+    /**
+     * Set a default conversion to use by collection.
+     * Can be set for all view with a string or by view with an array.
+     * Possible array keys are: index, detail, form, preview and fallback.
+     * 
+     * i.e.
+     * ['image' => 'thumb']
+     * or
+     * ['image' => [
+     *  'detail' => 'full',
+     *  'fallback' => 'thumb',
+     * ]
+     */
+    'collections-default-conversions' => [],
+```
+**If you come from an older version, just add this option to your existing config file.**
+
+With this option, you can configure a generic default for all view of a collection or specific to each view.
+The 'fallback' is used when the specific view is not defined. 
+
 ## Generic file management
 
 ![Generic file management](https://raw.githubusercontent.com/ebess/advanced-nova-media-library/master/docs/file-management.png)
@@ -132,6 +155,33 @@ return [
 * Enable the selection of existing media field
 ```php
 Images::make('Image')->enableExistingMedia(),
+```
+
+### Filtering of existing media gallery
+**Attention**: Only basic *where* are implemented for now. Feel free to make a PR to add more options.
+
+If you want to filter what existing medias you want to show in your gallery for a specific field:
+```php
+Images::make('Image')
+    ->enableExistingMedia('my-collection-name')
+    // Or
+    ->existingFilters([
+        ...
+    ])
+```
+
+The function enableExistingMedia takes one optional parameter to specify a collection scope.
+
+For more specific where, you have existingFilters that let you customize the query with the same format 
+you would on a query builder 'where' function. **It needs to be an array of arrays**:
+
+examples:
+```php
+    ->existingFilters([
+        ['disk', 'public'],
+        ['disk', '=', 'public'], // Same as previous
+        ['model_type', 'App\User']
+    ])
 ```
 
 ## Names of uploaded images
