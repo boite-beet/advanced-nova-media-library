@@ -1,7 +1,8 @@
 <?php
 
-namespace Ebess\AdvancedNovaMediaLibrary\Fields;
+namespace BoiteBeet\AdvancedNovaMediaLibrary\Fields;
 
+use App\Draft;
 use Laravel\Nova\Fields\Field;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Support\Collection;
@@ -150,7 +151,7 @@ class Media extends Field
      * @param mixed $requestAttribute
      * @param mixed $attribute
      */
-    protected function fillAttributeFromRequest(NovaRequest $request, $requestAttribute, $model, $attribute)
+    public function fillAttributeFromRequest(NovaRequest $request, $requestAttribute, $model, $attribute)
     {
         $attr = $request['__media__'] ?? [];
         $data = $attr[$requestAttribute] ?? [];
@@ -302,11 +303,10 @@ class Media extends Field
         return $media->toArray();
     }
 
-    /**
-     * @deprecated not needed, field recognizes single/multi file media by itself
-     */
     public function multiple(): self
     {
+        $this->withMeta(['multiple' => true]);
+
         return $this;
     }
 

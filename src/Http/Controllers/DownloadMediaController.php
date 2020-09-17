@@ -1,6 +1,6 @@
 <?php
 
-namespace Ebess\AdvancedNovaMediaLibrary\Http\Controllers;
+namespace BoiteBeet\AdvancedNovaMediaLibrary\Http\Controllers;
 
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 

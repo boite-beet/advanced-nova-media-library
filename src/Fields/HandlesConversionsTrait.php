@@ -1,6 +1,6 @@
 <?php
 
-namespace Ebess\AdvancedNovaMediaLibrary\Fields;
+namespace BoiteBeet\AdvancedNovaMediaLibrary\Fields;
 
 /**
  * @mixin Media
