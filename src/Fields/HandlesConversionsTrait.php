@@ -41,10 +41,10 @@ trait HandlesConversionsTrait
     private function setDefaultConversion(string $collection)
     {
         $defaults = [
-            'conversionOnIndexView'  => $this->getDefaultConversionForCollection($collection, 'index') ?? '',
-            'conversionOnDetailView' => $this->getDefaultConversionForCollection($collection, 'detail') ?? '',
-            'conversionOnForm'       => $this->getDefaultConversionForCollection($collection, 'form') ?? '',
-            'conversionOnPreview'    => $this->getDefaultConversionForCollection($collection, 'preview') ?? '',
+            'conversionOnIndexView'  => $this->meta['conversionOnIndexView'] ?? $this->getDefaultConversionForCollection($collection, 'index') ?? '',
+            'conversionOnDetailView' => $this->meta['conversionOnDetailView'] ?? $this->getDefaultConversionForCollection($collection, 'detail') ?? '',
+            'conversionOnForm'       => $this->meta['conversionOnForm'] ?? $this->getDefaultConversionForCollection($collection, 'form') ?? '',
+            'conversionOnPreview'    => $this->meta['conversionOnPreview'] ?? $this->getDefaultConversionForCollection($collection, 'preview') ?? '',
         ];
         if(method_exists($this, 'withMeta')) {
             $this->withMeta($defaults);
